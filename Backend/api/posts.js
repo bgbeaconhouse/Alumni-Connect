@@ -49,7 +49,7 @@ router.get("/", verifyToken, async (req, res, next) => {
 
 router.post("/", verifyToken, upload, async (req, res, next) => {
     try {
-        const { textContent, imageContent } = req.body;
+        const { textContent, imageContent,} = req.body;
         const images = req.files ? req.files.map(file => file.filename) : []; // Get the filename of the uploaded image
   
         console.log("request body:", req.body);
@@ -67,7 +67,7 @@ router.post("/", verifyToken, upload, async (req, res, next) => {
         const userId = req.userId
 
         const post = await prisma.post.create({
-            data: { textContent, imageContent, userId:userId },
+            data: { textContent, imageContent, userId:userId, },
             include: { // Include the user data in the response, if needed
                 user: true,
               },

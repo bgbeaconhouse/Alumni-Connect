@@ -1,0 +1,61 @@
+.posts-container {
+    margin: 20px; /* Added margin to the outer container for spacing */
+}
+
+.post-container {
+    background-color: #f0f4f8;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    display: flex; /* Use flexbox to align buttons */
+    flex-direction: column; /* Stack content vertically */
+}
+
+.post-header {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.post-date {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.post-text {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Add some space below the image */
+}
+
+.post-container > div {
+    display: flex; /* Align buttons in a row */
+    gap: 10px; /* Space between the buttons */
+    margin-top: 10px; /* Add some space above the buttons */
+}
+
+.post-container button {
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.post-container button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
