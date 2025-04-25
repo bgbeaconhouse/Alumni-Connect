@@ -17,9 +17,9 @@ const bcrypt = require('bcrypt');
 const verifyToken = require("./verify")
 
 app.post("/api/register", async (req, res, next) => {
-  const {username, password} = req.body
+  const {username, password, firstName, lastName} = req.body
   const newUser = await prisma.user.create({
-    data: {username, password: await bcrypt.hash(password, 5)}
+    data: {username, password: await bcrypt.hash(password, 5), firstName, lastName}
   })
   const token = jwt.sign({id: newUser.id, username: newUser.username}, process.env.JWT_SECRET)
 
