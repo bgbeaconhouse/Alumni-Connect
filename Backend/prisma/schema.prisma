@@ -34,7 +34,7 @@ model Post {
   user User @relation(fields: [userId], references: [id])
   userId Int
   textContent String
-  imageContent String
+  imageContents String[]
   likes Like[]
   comments Comment[]
   createdAt   DateTime  @default(now())

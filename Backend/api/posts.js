@@ -1,11 +1,11 @@
 const express = require("express")
 const router=express.Router()
-const multer = require("multer");
+
 router.use(express.json())
-const fs = require('fs').promises;
+const multer = require("multer");
 
 const prisma = require("../prisma");
-
+const fs = require('fs').promises;
 const verifyToken = require("../verify")
 
 // Configure Multer for disk storage
@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
     }
   });
   
-  const upload = multer({ storage: storage }).array('images', 10); 
+  const upload = multer({ storage: storage }).array('imageContents', 10); 
   const uploadSingle = multer({ storage: storage }).single('image');
 
 
@@ -49,8 +49,8 @@ router.get("/", verifyToken, async (req, res, next) => {
 
 router.post("/", verifyToken, upload, async (req, res, next) => {
     try {
-        const { textContent, imageContent,} = req.body;
-        const images = req.files ? req.files.map(file => file.filename) : []; // Get the filename of the uploaded image
+        const { textContent } = req.body;
+        const imageContents = req.files ? req.files.map(file => file.filename) : []; // Get the filename of the uploaded image
   
         console.log("request body:", req.body);
         console.log("uploaded files:", req.files); // Log the uploaded file information
@@ -67,7 +67,7 @@ router.post("/", verifyToken, upload, async (req, res, next) => {
         const userId = req.userId
 
         const post = await prisma.post.create({
-            data: { textContent, imageContent, userId:userId, },
+            data: { textContent, imageContents, userId:userId, },
             include: { // Include the user data in the response, if needed
                 user: true,
               },

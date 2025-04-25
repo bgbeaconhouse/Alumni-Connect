@@ -12,6 +12,8 @@ app.use(require("morgan")("dev"));
 const cors = require("cors");
 app.use(cors({ origin: ["http://localhost:5173"] }));
 
+app.use('/uploads', express.static('uploads'));
+
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const verifyToken = require("./verify")

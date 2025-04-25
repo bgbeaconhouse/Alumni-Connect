@@ -55,7 +55,15 @@ const ViewPosts = () => {
                     <h3 className="post-header"> {post.user.firstName} {post.user.lastName}</h3>
                     <h3 className="post-date">{format(new Date(post.createdAt), 'MMMM dd, yyyy')}</h3>
                     <p className="post-text">{post.textContent}</p>
-                    {post.imageContent && <img src={post.imageContent} alt="Post picture" className="post-image" />}
+                    {post.imageContents && post.imageContents.length > 0 && (
+              <div className="pickup-image-container">
+                <img
+                  src={`http://localhost:3000/uploads/${post.imageContents[0]}`}
+                  alt={post.userId}
+                  className="pickup-image"
+                />
+              </div>
+            )}
                     <div><button>Add Comment</button></div>
                     <div><button>Like</button></div>
                 </div>

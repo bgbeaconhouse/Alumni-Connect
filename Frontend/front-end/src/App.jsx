@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Home from './components/Home';
+import AddPostForm from './components/AddPostForm';
 import './App.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Login />}/>
       <Route path="/home" element={<Home />}/>
+      <Route path="/posts" element={<AddPostForm/>}></Route>
     </Routes>
     </>
   )
