@@ -1,0 +1,153 @@
+.single-post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ensure the container takes up at least the full viewport height */
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .single-post-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Increased max-width for larger screens */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (top) */
+  }
+  
+  .single-post-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007bff; /* Primary color */
+    width: 100%; /* Ensure full width for header */
+    text-align: left; /* Align header text to the left */
+  }
+  
+  .single-post-date {
+    font-size: 14px;
+    color: #6c757d; /* Gray color for date */
+    margin-bottom: 15px;
+    width: 100%; /* Ensure full width for date */
+    text-align: left; /* Align date text to the left */
+  }
+  
+  .single-post-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #343a40; /* Darker text for better readability */
+    width: 100%; /* Ensure full width for text */
+    text-align: left; /* Align post text to the left */
+  }
+  
+  .single-post-image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Changed to flex-start */
+    margin-bottom: 15px;
+    width: 100%; /* Ensure full width for images */
+  }
+  
+  .single-post-image-wrapper {
+    margin-right: 10px; /* Added margin between images */
+    margin-bottom: 10px;
+  }
+  
+  .single-post-image {
+    max-width: 100%; /* Ensure images don't exceed their container */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .single-post-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%; /* Ensure full width for buttons */
+    justify-content: flex-start; /* Align buttons to the left */
+    margin-top: auto; /* Push buttons to the bottom */
+  }
+  
+  
+  .single-post-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .single-post-button:hover {
+    background-color: #0056b3;
+  }
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .single-post-card {
+      padding: 15px;
+    }
+  
+    .single-post-header {
+      font-size: 22px;
+    }
+  
+    .single-post-text {
+      font-size: 14px;
+    }
+    .single-post-actions{
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .single-post-button{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
+  /* Added for very small screens */
+  @media (max-width: 480px) {
+    .single-post-container {
+      padding: 10px;
+    }
+  
+    .single-post-card {
+      padding: 10px;
+    }
+  
+    .single-post-header {
+      font-size: 20px;
+    }
+  
+    .single-post-date {
+      font-size: 12px;
+    }
+  
+    .single-post-text {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+  
+    .single-post-image-grid {
+      justify-content: center; /* Center images on very small screens */
+    }
+  
+    .single-post-image-wrapper {
+      margin-right: 0; /* Remove right margin on very small screens */
+      margin-bottom: 10px; /* Keep bottom margin for spacing */
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .single-post-image{
+      max-width: 90%;
+    }
+  }
+  

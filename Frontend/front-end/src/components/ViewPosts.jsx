@@ -64,8 +64,8 @@ const ViewPosts = () => {
                 />
               </div>
             )}
-                    <div><button>Add Comment</button></div>
-                    <div><button>Like</button></div>
+                
+                    <div><button onClick={() => navigate(`/posts/${post.id}`)}>See Details</button></div>
                 </div>
                 
             ))}

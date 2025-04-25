@@ -5,9 +5,9 @@ const Home = () => {
    const navigate = useNavigate();
     return ( 
         <>
-        <button ><Logout></Logout></button>
+        <Logout></Logout>
        <button onClick={() => navigate("/posts")}>Create Post</button>
-        Home Page
+        
         <ViewPosts></ViewPosts>
         </>
      );

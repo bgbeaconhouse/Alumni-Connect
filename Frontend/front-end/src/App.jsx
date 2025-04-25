@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Home from './components/Home';
 import AddPostForm from './components/AddPostForm';
+import ViewSinglePost from './components/ViewSinglePost';
 import './App.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/" element={<Login />}/>
       <Route path="/home" element={<Home />}/>
       <Route path="/posts" element={<AddPostForm/>}></Route>
+      <Route path="/posts/:id" element={<ViewSinglePost/>}></Route>
     </Routes>
     </>
   )

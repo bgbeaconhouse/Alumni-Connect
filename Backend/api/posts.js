@@ -80,4 +80,37 @@ router.post("/", verifyToken, upload, async (req, res, next) => {
     }
   });
 
+
+  router.get("/:id", verifyToken, async (req, res, next) => {
+    try {
+      const id = +req.params.id;
+  
+      const post = await prisma.post.findUnique({ 
+        where: { id },
+        include: {
+            user: {
+                select: {
+                    firstName: true,
+                    lastName: true,
+                    id: true,
+                },
+            },
+        },
+    
+    
+    });
+  
+      if (!post) {
+        return next({
+          status: 404,
+          message: `Could not find post with id ${id}.`,
+        });
+      }
+  
+      res.json(post);
+    } catch {
+      next();
+    }
+  });
+
 module.exports = router;
