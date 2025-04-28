@@ -113,4 +113,25 @@ router.post("/", verifyToken, upload, async (req, res, next) => {
     }
   });
 
+  router.delete("/:id", verifyToken, async (req, res, next) => {
+    
+    try {
+      const id = +req.params.id;
+  
+      const postExists = await prisma.post.findUnique({ where: { id } });
+      if (!postExists) {
+        return next({
+          status: 404,
+          message: `Could not find post with id ${id}.`,
+        });
+      }
+  
+      await prisma.post.delete({ where: { id } });
+  
+      res.sendStatus(204);
+    } catch {
+      next();
+    }
+  });
+
 module.exports = router;

@@ -3,6 +3,7 @@ const router=express.Router()
 router.use(express.json())
 
 const prisma = require("../prisma");
+const verifyToken = require("../verify")
 
 router.get("/", async (req, res, next) => {
     try {
@@ -13,6 +14,7 @@ router.get("/", async (req, res, next) => {
         next()
     }
 })
+
 
 
 
