@@ -7,6 +7,8 @@ import Home from './components/Home';
 import AddPostForm from './components/AddPostForm';
 import ViewSinglePost from './components/ViewSinglePost';
 import './App.css'
+import ViewOwnProfile from './components/ViewOwnProfile';
+import ViewProfiles from './components/ViewProfiles';
 
 function App() {
   
@@ -14,12 +16,18 @@ function App() {
   return (
     <>
     
+    
     <Routes>
       <Route path="/" element={<Login />}/>
       <Route path="/home" element={<Home />}/>
       <Route path="/posts" element={<AddPostForm/>}></Route>
       <Route path="/posts/:id" element={<ViewSinglePost/>}></Route>
+      <Route path="/profiles/" element={<ViewProfiles/>}/>
+      <Route path="/profiles/:id" element={<ViewOwnProfile />}/>
+      
+
     </Routes>
+    
     </>
   )
 }
