@@ -200,7 +200,30 @@ router.delete("/:postId/comments/:commentId", verifyToken, async (req, res, next
   }
 });
 
+// Route to get the number of comments for a specific post
+router.get("/:postId/comments/count", async (req, res, next) => {
+  try {
+    const postId = +req.params.postId; // Get the post ID from the URL
 
+    // 1. Count the comments for the given postId
+    const commentCount = await prisma.comment.count({
+      where: {
+        postId: postId,
+      },
+    });
+
+    // 2. Respond with the comment count
+    res.status(200).json({
+      postId: postId,
+      commentCount: commentCount,
+    });
+
+  } catch (error) {
+    // 3. Handle errors
+    console.error("Error getting comment count:", error);
+    next(error); // Pass error to your error handling middleware
+  }
+});
 
 
 
@@ -329,5 +352,6 @@ router.delete("/:postId/likes", verifyToken, async (req, res, next) => {
       next();
     }
   });
+
 
 module.exports = router;
