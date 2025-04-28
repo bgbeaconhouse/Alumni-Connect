@@ -9,6 +9,7 @@ import ViewSinglePost from './components/ViewSinglePost';
 import './App.css'
 import ViewOwnProfile from './components/ViewOwnProfile';
 import ViewProfiles from './components/ViewProfiles';
+import ViewComments from './components/ViewComments';
 
 function App() {
   
@@ -24,7 +25,7 @@ function App() {
       <Route path="/posts/:id" element={<ViewSinglePost/>}></Route>
       <Route path="/profiles/" element={<ViewProfiles/>}/>
       <Route path="/profiles/:id" element={<ViewOwnProfile />}/>
-      
+      <Route path="/posts/:id/comments" element={<ViewComments/>}></Route>
 
     </Routes>
     

@@ -3,9 +3,15 @@ const router=express.Router()
 
 router.use(express.json())
 
+
 const prisma = require("../prisma");
 const fs = require('fs').promises;
 const verifyToken = require("../verify")
+
+
+
+
+
 
 router.get("/", verifyToken, async (req, res, next) => {
     try {
@@ -35,4 +41,7 @@ router.get("/:id", verifyToken, async (req, res, next) => {
         next()
     }
 })
+
+
+
 module.exports = router;

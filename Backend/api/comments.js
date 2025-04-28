@@ -15,6 +15,10 @@ router.get("/", async (req, res, next) => {
     }
 })
 
+
+
+
+
 router.delete("/:id", verifyToken, async (req, res, next) => {
     
     try {

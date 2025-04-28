@@ -3,12 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import './ViewSinglePost.css'; // Import the CSS file
 
+
 const ViewSinglePost = () => {
     const [singlePost, setSinglePost] = useState("");
     const [error, setError] = useState(null);
     const { id } = useParams();
     const navigate = useNavigate();
-
+  
     useEffect(() => {
         async function fetchSinglePost() {
             try {
@@ -47,6 +48,7 @@ const ViewSinglePost = () => {
     return (
 
         <div className="single-post-container">
+           
             {singlePost && (
                 <div className="single-post-card">
                     <h3 className="single-post-header">
@@ -70,9 +72,10 @@ const ViewSinglePost = () => {
                     <div className="single-post-actions">
                         <button className="single-post-button">Add Comment</button>
                         <button className="single-post-button">Like</button>
+                        <button onClick={() => navigate(`/posts/${id}/comments`)} className="single-post-button">View Comments</button>
                     </div>
                 </div>
-            )}
+            )} 
         </div>
 
     );
