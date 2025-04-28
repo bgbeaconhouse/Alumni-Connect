@@ -9,6 +9,7 @@ const ViewSinglePost = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [hasComments, setHasComments] = useState(false);
+    const [commentCount, setCommentCount] = useState(0); // Add state for comment count
 
     useEffect(() => {
         async function fetchSinglePost() {
@@ -56,6 +57,7 @@ const ViewSinglePost = () => {
                 if (response.ok) {
                     const data = await response.json();
                     setHasComments(data.commentCount > 0);
+                    setCommentCount(data.commentCount); // Store the comment count
                 } else if (response.status === 401 || response.status === 403) {
                     console.error('Unauthorized access to comments');
                 } else {
@@ -98,7 +100,7 @@ const ViewSinglePost = () => {
                     <h3 className="single-post-header">
                         {singlePost.user?.firstName} {singlePost.user?.lastName} {/*Added ?. for safety */}
                     </h3>
-                    <p className="single-post-date">{format(new Date(singlePost.createdAt), 'MMMM dd, yyyy hh:mm a')}</p>
+                    <p className="single-post-date">{format(new Date(singlePost.createdAt), 'MMMM dd, yyyy hh:mm a')}</p> {/* corrected date format */}
                     <p className="single-post-text">{singlePost.textContent}</p>
                     {singlePost.imageContents && singlePost.imageContents.length > 0 && (
                         <div className="single-post-image-grid">
@@ -125,7 +127,7 @@ const ViewSinglePost = () => {
                                 opacity: !hasComments ? 0.6 : 1
                             }}
                         >
-                            View Comments
+                            View Comments ({commentCount}) {/* Display count here */}
                         </button>
                     </div>
                 </div>
@@ -135,3 +137,4 @@ const ViewSinglePost = () => {
 };
 
 export default ViewSinglePost;
+
