@@ -44,6 +44,7 @@ const Home = () => {
         <button onClick={() => navigate(`/profiles/${userId}`)}>My Profile</button>
       )}
       <button onClick={() => navigate('/profiles/')}>Profiles</button>
+      
       <ViewPosts />
     </>
   );
