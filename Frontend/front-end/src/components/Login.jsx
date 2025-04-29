@@ -24,7 +24,7 @@ const Login = () => {
       if (response.ok) {
         const token = await response.json();
         localStorage.setItem('token', token);
-        navigate('/home');
+        navigate('/posts');
         console.log('Login successful, token:', token);
       } else {
         const errorMessage = await response.text();

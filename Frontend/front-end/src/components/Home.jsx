@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <>
       <Logout />
-      <button onClick={() => navigate("/posts")}>Create Post</button>
+      <button onClick={() => navigate("/createposts")}>Create Post</button>
       {userId && (
         <button onClick={() => navigate(`/profiles/${userId}`)}>My Profile</button>
       )}

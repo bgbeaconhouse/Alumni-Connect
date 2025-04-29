@@ -20,8 +20,8 @@ function App() {
     
     <Routes>
       <Route path="/" element={<Login />}/>
-      <Route path="/home" element={<Home />}/>
-      <Route path="/posts" element={<AddPostForm/>}></Route>
+      <Route path="/posts" element={<Home />}/>
+      <Route path="/createposts" element={<AddPostForm/>}></Route>
       <Route path="/posts/:id" element={<ViewSinglePost/>}></Route>
       <Route path="/profiles/" element={<ViewProfiles/>}/>
       <Route path="/profiles/:id" element={<ViewOwnProfile />}/>
